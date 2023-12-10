@@ -1,0 +1,83 @@
+import pandas as pd
+import numpy as np
+import re
+
+
+class Solution:
+    def update_category(self, chips_data):
+       # Replace category values
+        chips_data['category'] = chips_data['category'].replace({
+            'YOUNG FAMILIES': 'YOUNG SINGLES/FAMILIES',
+            'OLDER FAMILIES': 'OLDER SINGLES/FAMILIES',
+            'NEW FAMILIES': 'NEW SINGLES/FAMILIES',
+            'MIDAGE FAMILIES': 'MIDAGE SINGLES/FAMILIES'
+        })
+        
+        return chips_data
+    
+    
+    def filter_parse_product_weight(self, chips_data):
+      
+        chips_data['product_weight'] = chips_data['product_name'].str.extract(r'(\d+)G', flags=re.IGNORECASE)
+        
+        # Convert extracted product weight to integer
+        chips_data['product_weight'] = chips_data['product_weight'].astype(float).astype(pd.Int64Dtype())
+        
+        return chips_data
+    
+    
+    
+    def filter_product_type(self, chips_data):
+        chips_data['product_type'] = np.where(chips_data['product_name'].str.contains('chips', case=False), 'CHIPS', 'OTHERS')
+        return chips_data
+    
+    
+    
+    def parse_date(self, chips_data):
+        chips_data['date'] = pd.to_datetime(chips_data['date'], format='%Y-%m-%d')
+        
+        return chips_data
+    
+    
+    def clean_product_brand(self, chips_data):
+        chips_data['product_brand'] = chips_data['product_brand'].str.upper()
+        
+        # Fix typos in brand names
+        chips_data['product_brand'] = chips_data['product_brand'].replace({
+            'DORITO': 'DORITOS',
+            'INFZNS': 'INFUZIONZ',
+            'RRD': 'RED'
+        })
+        
+        return chips_data
+    
+    
+    
+    def filter_small_sized_chip_packs(self, chips_data):
+        """
+        Filter products that have 'CHIPS' in the product_type and the weight of the product less than 200 grams.
+        :param chips_data: dataframe of chips
+        :return: dataframe of chips with filtered data.
+        """
+        # Filter products based on condition
+        filtered_chips_data = chips_data[(chips_data['product_type'] == 'CHIPS') & (chips_data['product_weight'] < 200)]
+        
+        return filtered_chips_data
+    
+    
+    def calculate_total_cost_on_each_order(self, chips_data):
+        
+        chips_data['total_cost'] = chips_data['quantity'] * chips_data['unit_price']
+        
+        return chips_data
+    
+    
+    def calculate_total_revenue_based_yrandmnth(self, chips_data, year, month):
+        
+        filtered_data = chips_data[(chips_data['date'].dt.year == year) & (chips_data['date'].dt.month == month)]
+        
+        
+        pivot_table = filtered_data.pivot_table(values='total_cost', index='category', columns='product_brand', aggfunc='sum', fill_value=0)
+        
+        return pivot_table
+    

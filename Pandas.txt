@@ -1,0 +1,64 @@
+dataset information:
+chip_dataset.csv
+the data format is category, product_brand, product_name, date, quantity, prioce.
+category:- category of customers
+product_brand :- brand of product they brought
+product_name:-name of product
+date:- purchase date
+quantity :- number of item purchased
+price :- product unit price
+
+
+8 method need to implement in this file
+update_category(self, chips_data):
+update the cateogry column values.
+replace the category"YOUNG FAMILIES" with "YOUNG SINGLES/FAMILIES"
+replace "OLDER FAMILIES" WITH "ORDER SINGLES/FAMILIES"
+replace "NEW FAMILIES" with "NEW SINGLES/FAMILIES"
+replace "'MIDAGE FAMILIES" with "MIDAGE SINGLES/FAMILIES"
+
+return dataframe of chip with updated category
+
+
+
+
+
+
+
+
+filter_parse_product_weight(self, chips_data):
+filter product weight from product name column and parse it as integer store in into 'product_weight' column.
+
+
+parse_date(self, chips_data):
+parse date to timestamp data type
+return dataframe of chips with parsed date column.
+
+clean_product_brand(self, chips_data):
+clean ip product_brand. convert brand name to upper case, and fil typo for 3 brands name:
+replace "Dorito" with "DORITOS"
+replace "Infzns" with "INFUZIONZ"
+replace "RRD" with "RED"
+return dataframe of chips with cleaned product_brand column.
+
+
+
+filter_product_type(self, chips_data):
+filter product type from product name column, chek if products that have 'chips' or 'chip' in product name then storeit as 'CHIPS' else store it as 'OTHERS' in 'product_type'
+return the dataframe of chip with new product_type column.
+
+
+filter_snall_sized_chip_packs(self, chips_data):
+filter product that have 'CHIPS' in the proeuct_type and weight of the product less than 200grams
+return dataframe of chips with filtered data.
+
+calculate_total_cost_on_each_order(self, chips_data):
+calculate the total cost for ordrr given in the filtered dataframe of chips and store into seperate column"total_cost"
+return the chips dataframe with calculated total cost.
+
+
+calculate_tota_revenue_based_yrandmnth(self, chips_data, year, month):
+calculate sales distribution and generate a pivoted data frame where each row corresponds to a customer category and columns are the product brand names.
+each cell should denote the total revenue generated from customer for the corresponding brand for the given year and month.
+
+replace missing data points with zeros.

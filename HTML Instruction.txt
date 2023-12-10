@@ -1,0 +1,75 @@
+HEADER:
+it should contain the heading Excepteur Sapce Agency with classname 'logo'
+it should contain navigation links that refers to sections with id's projects, services, gallery, admin in the same page
+the text for that links are projects services photo gallery, administration
+
+MAIN:
+it should contain four sections with id's projects, services, gallery, admin.
+
+
+PROJECT SCREEN:
+Sample text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+it should contain 3 div tags with classname expandonhover and an artical with classname careers.
+first division should contain following 3 elements
+the text Excepteur 1 Mission inside h3 tag.
+The figure Excepteur1.png with caption Orbiter Spacecraf. Note the images are available inside App/assets.
+The paragraph tag with sample text.
+
+
+Second division should contain following 3 elements.
+The text Current Mission - Excepteur 2 inside h3 tag.
+The figure Excepteur2.png with caption Crewed Lunar Mission.
+The paragraph tag with sample text.
+
+
+
+Third division should contain following 5 elements.
+The text Future Missions inside h3 tag.
+The text Excepteur 3 - Mars Rover inside h4 tag.
+The sample text inside paragraph tag.
+The text Excepteur 4 - Orbiter Spacecraft inside h4 tag.
+The sample text inside paragraph tag.
+
+
+Article should contain following 3 elements
+The text Careers inside h3 tag.
+The figure careers.png with captionBecome the part of Excepteur. 
+The nav tag containing unordered list with 2 links. The text for links are View Openings, Internships.
+
+
+SERVICE SECTION
+
+This section should contain heading Services in h2 tag and 5 articals
+Each articals should contain the heading in h3 tag and the sample text paragraph tag
+heading for 5 articals are
+Satellite Launch Service
+Meteorological Data Service
+Digital Mapping Service
+Astronaut Training
+Satellite Navigation Service
+
+
+Gallery SECTION
+
+This section should contain the heading Photo Gallery in h2 tag and 4 figures.
+The 4 figures are crew.png, red-space.png, purple-space.png, Excepteur1.png.
+The corresponding captions are 'Lunar mission crew members, Image sent by Excepteur1 satellite, Image sent by Excepteur1 satellite, Launch of Excepteur1'
+
+
+ADMINISTRATION SECTION
+This section should contain 3 articles.
+Each article should contain the following 3 elements.
+The figure avatar.png with caption John Doe.
+The h3 tag with text CHAIRMAN & FOUNDER, CHIEF EXECUTIVE OFFICER. CHIEF SECRETARY respectively.
+The sample text in paragraph tag.
+
+
+FOOTER
+This section should contain 3 sets of navigation tags. The text for each set is given below.
+Set 1- Contact us, Privacy policy, FAQs,Terms of use.
+Set 2- License, Cookie preferences,Navigation, Arial pictures.
+Set 3- Launch pads, Observation center, Site map, Tenders.
+
+
+
+Note: Fix testcase errors by writing required scripts. Do not worry about CSS part. Required images are available inside App/assets.

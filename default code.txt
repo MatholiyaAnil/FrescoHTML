@@ -1,0 +1,85 @@
+import pandas as pd
+import numpy as np
+import re
+
+
+class Solution:
+    def update_category(self, chips_data):
+        """
+        Update the category column values.
+        Replace the category "YOUNG FAMILIES" with "YOUNG SINGLES/FAMILIES"
+        Replace the category "OLDER FAMILIES" with "OLDER SINGLES/FAMILIES"
+        Replace the category "NEW FAMILIES" with "NEW SINGLES/FAMILIES"
+        Replace the category "MIDAGE FAMILIES" with "MIDAGE SINGLES/FAMILIES"
+        :param chips_data: dataframe of chips
+        :return: dataframe of chips with updated category
+        """
+        pass
+
+    def filter_parse_product_weight(self, chips_data):
+        """
+        Filter product weight from product name column and parse it as integer. Store it into `product_weight` column.
+        :param chips_data: dataframe of chips
+        :return: dataframe of chips with new product_weight column.
+        """
+        pass
+
+    def filter_product_type(self, chips_data):
+        """
+        Filter product type from product name column, Check if products that have 'chip' or 'chips' in the product name then store it as `CHIPS` else store it as `OTHERS` in `product_type`
+        :param chips_data: dataframe of chips
+        :return: dataframe of chips with new product_type column.
+        """
+        pass
+
+    def parse_date(self, chips_data):
+        """
+        Parse date to timestamp data type
+        :param chips_data: dataframe of chips
+        :return: dataframe of chips with parsed date column.
+        """
+        pass
+
+    def clean_product_brand(self, chips_data):
+        """
+        Clean up the "product_brand" column. Convert brand names to upper case and fix typos for 3 brand names: replace "Dorito" with "DORITOS", "Infzns" with "INFUZIONZ", and "RRD" with "RED".
+        :param chips_data: dataframe of chips
+        :return: dataframe of chips with cleaned product_brand column
+        """
+        pass
+
+    def filter_small_sized_chip_packs(self, chips_data):
+        """
+        filter products that have 'CHIPS' in the product_type and the weight of the product less than 200 grams.
+        For example, the product "COBS POPD SEA SALT CHIPS 110G" should be selected and the product "WW SUPREME CHEESE CORN CHIPS 200G" should not be selected as it has a size of 200 grams.
+        :param chips_data: dataframe of chips
+        :return: dataframe of chips with filtered data.
+        """
+        pass
+
+    def calculate_total_cost_on_each_order(self, chips_data):
+        """
+        Calculate the total cost for order given in the filtered dataframe of chips and store into separate column `total_cost`
+        :param chips_data: dataframe of chips
+        :return: dataframe of chips with calculated total cost.
+        """
+        pass
+
+    def calculate_total_revenue_based_yrandmnth(self, chips_data, year, month):
+        """
+        Calculate sales distribution and generate a pivoted data frame where each row corresponds to a customer category and columns are the product brand names.
+        Each cell should denote the total revenue generated from the customer for the corresponding brand for the given year and month.
+        Replace missing data points with zeros.
+        Example:
+        "category","COBS","DORITOS","TOSTITOS","WOOLWORTHS"
+        "NEW FAMILIES",0,3.9,0,0
+        "YOUNG SINGLES/COUPLES",49.4,15.6,0,0
+        "MIDAGE SINGLES/COUPLES",15.2,33.2,0,0
+        "OLDER SINGLES/COUPLES",60.8,52.8,17.6,0
+        "RETIREES",30.4,0,0,1.9
+        :param chips_data: dataframe of chips
+        :param year: year
+        :param month: month
+        :return: return pivoted data frame where each row corresponds to a customer category and columns are the product brand names.
+        """
+        pass
